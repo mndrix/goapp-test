@@ -1,7 +1,6 @@
 package hello
 
 import (
-	"fmt"
 	"net/http"
 
 	"google.golang.org/appengine"
@@ -28,8 +27,4 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 	key := datastore.NewKey(c, "foos", "uniqueness", 0, nil)
 	SayHello(w, key.String())
-}
-
-func SayHello(w http.ResponseWriter, whom string) {
-	fmt.Fprintf(w, "Hello, %s", whom)
 }
