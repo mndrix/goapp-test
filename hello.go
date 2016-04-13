@@ -27,5 +27,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	key := datastore.NewKey(c, "foos", "uniqueness", 0, nil)
-	fmt.Fprintf(w, "Hello, %s!", key.String())
+	SayHello(w, key.String())
+}
+
+func SayHello(w http.ResponseWriter, whom string) {
+	fmt.Fprintf(w, "Hello, %s", whom)
 }
