@@ -3,6 +3,8 @@ package hello
 import (
 	"net/http"
 
+	"github.com/foo/hi"
+
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/datastore"
 	"google.golang.org/appengine/user"
@@ -26,5 +28,5 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	key := datastore.NewKey(c, "foos", "uniqueness", 0, nil)
-	SayHello(w, key.String())
+	hi.SayHello(w, key.String())
 }
